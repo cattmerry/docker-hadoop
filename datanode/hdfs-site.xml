@@ -1,0 +1,14 @@
+<configuration>
+  <property>
+    <name>dfs.datanode.data.dir</name>
+    <value>file:///opt/hadoop/dfs/data</value>
+  </property>
+  <property>
+    <name>dfs.blocksize</name>
+    <value>10485760</value>
+  </property>  
+  <property>
+    <name>dfs.datanode.use.datanode.hostname</name>
+    <value>true</value>
+  </property>
+</configuration>

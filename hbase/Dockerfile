@@ -18,12 +18,16 @@ RUN mkdir /opt/hadoop/dfs
 RUN ln -s /opt/hadoop-$HADOOP_VERSION/etc/hadoop /etc/hadoop
 RUN rm -rf /opt/hadoop/share/doc
 
+# copy hadoop config file
 ADD core-site.xml /etc/hadoop
 ADD yarn-site.xml /etc/hadoop
 ADD mapred-site.xml /etc/hadoop
 
+# copy spark config file
+ADD spark-defaults.conf $SPARK_HOME/conf
+RUN mkdir $SPARK_HOME/eventLog
+
 ENV HADOOP_HOME=/opt/hadoop
 ENV HADOOP_CONF_DIR=/etc/hadoop
 ENV YARN_CONF_DIR=$HADOOP_HOME/etc/hadoop
-
 ENV PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin

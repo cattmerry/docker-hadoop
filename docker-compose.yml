@@ -1,0 +1,51 @@
+version: "3.7"
+
+x-datanode_base: &datanode_base
+  image: hadoop-datanode
+  networks:
+    - bridge
+
+services:
+  namenode:
+    image: hadoop-namenode
+    container_name: namenode
+    hostname: namenode
+    ports:
+      - "9098:9870"
+    volumes:
+      - namenode:/opt/hadoop/dfs/name
+      - /tmp:/tmp
+    networks:
+      - bridge
+  
+  datanode01:
+    <<: *datanode_base
+    container_name: datanode01
+    hostname: datanode01
+    volumes:
+      - datanode01:/opt/hadoop/dfs/data
+      - /tmp:/tmp
+  datanode02:
+    <<: *datanode_base
+    container_name: datanode02
+    hostname: datanode02
+    volumes:
+      - datanode02:/opt/hadoop/dfs/data
+      - /tmp:/tmp
+  datanode03:
+    <<: *datanode_base
+    container_name: datanode03
+    hostname: datanode03
+    volumes:
+      - datanode03:/opt/hadoop/dfs/data
+      - /tmp:/tmp
+
+
+volumes:
+  namenode:
+  datanode01:
+  datanode02:
+  datanode03:
+
+networks:
+  bridge:
