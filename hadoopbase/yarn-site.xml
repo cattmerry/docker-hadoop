@@ -19,5 +19,25 @@
     <name>yarn.nodemanager.logs-dirs</name>
 	 <value>/opt/hadoop/yarn/data</value>
  </property>
-
+ 
+ <property>
+    <name>yarn.timeline-service.enabled</name>
+    <value>true</value>
+ </property>
+ <property>
+     <name>yarn.resourcemanager.system-metrics-publisher.enabled</name>
+     <value>true</value>
+ </property>
+ <property>
+     <name>yarn.timeline-service.generic-application-history.enabled</name>
+     <value>true</value>
+ </property>
+ <property>
+     <name>yarn.timeline-service.leveldb-timeline-store.path</name>
+     <value>/opt/hadoop/yarn/timeline</value>
+ </property>
+ <property>
+     <name>yarn.timeline-service.hostname</name>
+     <value>yarntimelineserver</value>
+ </property>
 </configuration>

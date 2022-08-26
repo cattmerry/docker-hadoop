@@ -9,13 +9,8 @@ RUN yum install -y wget
 RUN yum -y groupinstall "Development Tools"
 RUN yum -y install openssl-devel bzip2-devel libffi-devel
 
-
-ENV SPARK_VERSION=3.3.0
-ENV HADOOP_VERSION=3.2.4
 ENV PYTHON_VERSION=3.7.6
 ENV PYTHON_URL=https://www.python.org/ftp/python/$PYTHON_VERSION/Python-$PYTHON_VERSION.tgz
-ENV HADOOP_URL=https://dlcdn.apache.org/hadoop/common/hadoop-$HADOOP_VERSION/hadoop-$HADOOP_VERSION.tar.gz
-ENV SAPRK_URL=https://dlcdn.apache.org/spark/spark-$SPARK_VERSION/spark-$SPARK_VERSION-bin-hadoop3.tgz
 
 # python install
 RUN wget $PYTHON_URL
@@ -23,6 +18,7 @@ RUN tar -xvzf Python-$PYTHON_VERSION.tgz && rm Python-$PYTHON_VERSION.tgz
 RUN /Python-$PYTHON_VERSION/configure --enable-optimizations
 RUN make altinstall
 RUN ln -s /usr/local/bin/python3.7 /usr/bin/python3
+RUN ln -s /usr/local/bin/python3.7 /usr/bin/python
 
 # java install
 RUN yum install -y java-1.8.0-openjdk.x86_64
