@@ -2,6 +2,6 @@
 
 docker-compose down
 
-docker build -t hs-base ./hadoop/base
-docker build -t hadoop-namenode ./hadoop/namenode
-docker build -t hadoop-datanode ./hadoop/datanode
+docker build -t language-base ./languagebase
+docker build -t hadoop-base ./hadoop/hadoopbase
+docker build -t hadoop-spark-base ./hadoop/hadoopsparkbase
