@@ -16,9 +16,6 @@ ADD zeppelin-site.xml /$ZEPPELIN_FILE_NAME/conf
 ADD start.sh /start.sh
 RUN chmod 700 /start.sh
 
-# test용 data 
-RUN mkdir /testdata
-
 # 8080 : zeppelin web UI port
 EXPOSE 8080
 
